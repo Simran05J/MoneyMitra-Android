@@ -1,0 +1,20 @@
+<resources>
+
+    <style name="Theme.MoneyMitra" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">#7CF7E8</item>
+        <item name="colorPrimaryVariant">#6FE6D8</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <item name="materialButtonStyle">@style/NoTintButton</item>
+
+        <item name="android:statusBarColor">#000000</item>
+    </style>
+
+    <style name="Theme.MoneyMitra.Splash"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:statusBarColor">#000000</item>
+    </style>
+
+</resources>

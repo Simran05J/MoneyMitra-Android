@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "287147107742",
+    "project_id": "moneymitra-b1be1",
+    "storage_bucket": "moneymitra-b1be1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:287147107742:android:4f1db4428e46560118628f",
+        "android_client_info": {
+          "package_name": "com.example.moneymitra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "287147107742-u0kvo9joacjbu5hjt0arnmlnlce68b64.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moneymitra",
+            "certificate_hash": "55ede11821d018e5fb195a002bf02339a99d48b5"
+          }
+        },
+        {
+          "client_id": "287147107742-afnhk540rcc4smdqa9s89p0gmi1qitgc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB3antFg2nJSa4AXXs2rOZQyJs3HfV3c7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "287147107742-afnhk540rcc4smdqa9s89p0gmi1qitgc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

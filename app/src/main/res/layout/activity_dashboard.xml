@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mm_bg_black">
+
+    <!-- ================= HEADER (LOCKED) ================= -->
+    <FrameLayout
+        android:id="@+id/headerCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/header_background"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <!-- HEADER GLOW -->
+        <ImageView
+            android:id="@+id/headerGlow"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_header_glow"
+            app:layout_constraintTop_toBottomOf="@id/headerSvg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:paddingBottom="28dp">
+
+            <TextView
+                android:id="@+id/tvHello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textSize="13sp"
+                android:textColor="@color/mm_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Simran"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="@color/mm_white"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvHello"
+                app:layout_constraintStart_toEndOf="@id/tvHello" />
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:clickable="true"
+                android:focusable="true"
+
+                android:src="@drawable/ic_profile"
+                android:scaleType="centerCrop"
+                app:tint="@null"
+
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <View
+                android:id="@+id/headerDivider"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="#D9D9D9"
+                app:layout_constraintTop_toBottomOf="@id/tvHello"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your One Stop Solution\nfor Smart Finances"
+                android:textSize="14sp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/mm_white"
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/headerDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <!-- ================= CONTENT ================= -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="12dp"
+        app:layout_constraintTop_toBottomOf="@id/headerCard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ROW 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Investment BIG -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardInvestment"
+                    android:layout_width="0dp"
+                    android:layout_height="250dp"
+                    android:layout_weight="1"
+                    android:layout_margin="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardUseCompatPadding="true"
+
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#6FF2E7">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="111dp"
+                            android:layout_height="111dp"
+                            android:src="@drawable/ic_investment"
+                            app:tint="@color/mm_bg_black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Investment"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/mm_bg_black"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tracker"
+                            android:textSize="13sp"
+                            android:textColor="@color/mm_bg_black" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Goal + Calculator -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardGoal"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_margin="6dp"
+
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardUseCompatPadding="true"
+
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="#51D928">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/ic_goal"
+                                app:tint="@color/mm_bg_black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Financial Goal"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="@color/mm_bg_black"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardCalculator"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_margin="6dp"
+
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardUseCompatPadding="true"
+
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="#D37CF7">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/ic_calculator"
+                                app:tint="@color/mm_bg_black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Calculator"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="@color/mm_bg_black"
+                                android:layout_marginStart="8dp"
+                                android:maxLines="1"
+                                android:ellipsize="end" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ROW 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <!-- Liability + Asset -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardLiability"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_margin="6dp"
+
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardUseCompatPadding="true"
+
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="#D37CF7">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/ic_liability"
+                                app:tint="@color/mm_bg_black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Liability"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="@color/mm_bg_black"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardAsset"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_margin="6dp"
+
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardUseCompatPadding="true"
+
+                        app:cardCornerRadius="20dp"
+                        app:cardBackgroundColor="#51D928">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:src="@drawable/ic_asset"
+                                app:tint="@color/mm_bg_black" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Asset"
+                                android:textStyle="bold"
+                                android:textSize="13sp"
+                                android:textColor="@color/mm_bg_black"
+                                android:layout_marginStart="8dp" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+                <!-- Expense BIG -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardExpense"
+                    android:layout_width="0dp"
+                    android:layout_height="250dp"
+                    android:layout_weight="1"
+                    android:layout_margin="6dp"
+
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardUseCompatPadding="true"
+
+                    app:cardCornerRadius="24dp"
+                    app:cardBackgroundColor="#6FF2E7">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        android:padding="12dp">
+
+                        <ImageView
+                            android:layout_width="111dp"
+                            android:layout_height="111dp"
+                            android:src="@drawable/ic_expense"
+                            app:tint="@color/mm_bg_black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expense"
+                            android:textStyle="bold"
+                            android:textSize="15sp"
+                            android:textColor="@color/mm_bg_black"
+                            android:layout_marginTop="12dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tracker"
+                            android:textSize="13sp"
+                            android:textColor="@color/mm_bg_black" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- CHATBOT -->
+    <ImageView
+        android:id="@+id/ivChatbot"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_margin="16dp"
+
+        android:clickable="true"
+        android:focusable="true"
+
+
+        android:src="@drawable/ic_chatbot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

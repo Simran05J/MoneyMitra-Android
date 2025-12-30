@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black_bg">#000000</color>
+    <color name="mm_purple">#9C27B0</color>
+    <color name="mm_light">#F2F2F2</color>
+    <color name="mm_bg_black">#000000</color>
+    <color name="mm_header_purple">#9C27B0</color>
+    <color name="mm_investment_blue">#8CF3FF</color>
+    <color name="mm_goal_green">#7ED957</color>
+    <color name="mm_liability_purple">#D686FF</color>
+    <color name="mm_asset_green">#B5FF6B</color>
+    <color name="mm_expense_blue">#77E5FF</color>
+    <color name="mm_white">#FFFFFF</color>
+    <color name="mm_text_grey">#E0E0E0</color>
+    <color name="mm_finance_green">#76FFB3</color>
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoneyMitra</string>
+    <string name="logo_desc">MoneyMitra Logo</string>
+    <string name="app_tagline">Smart. Simple. Secure.</string>
+    <string name="default_web_client_id">
+   287147107742-afnhk540rcc4smdqa9s89p0gmi1qitgc.apps.googleusercontent.com
+</string>
+
+</resources>

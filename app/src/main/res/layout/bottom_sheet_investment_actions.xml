@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/btnEdit"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Edit Investment"
+        android:textSize="16sp"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#333333"
+        android:layout_marginVertical="8dp"/>
+
+    <TextView
+        android:id="@+id/btnDelete"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="Delete Investment"
+        android:textSize="16sp"
+        android:textColor="#FF5252"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp" />
+
+</LinearLayout>

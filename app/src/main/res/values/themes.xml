@@ -1,0 +1,24 @@
+<resources>
+
+    <style name="Theme.MoneyMitra" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- App accent (cards, highlights etc.) -->
+        <item name="colorPrimary">#7CF7E8</item>
+        <item name="colorPrimaryVariant">#6FE6D8</item>
+
+        <!-- IMPORTANT: buttons ko force mat karo -->
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- Disable default Material button tint -->
+        <item name="materialButtonStyle">@style/NoTintButton</item>
+
+        <item name="android:statusBarColor">#000000</item>
+    </style>
+
+    <style name="Theme.MoneyMitra.Splash"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:statusBarColor">#000000</item>
+    </style>
+
+</resources>
