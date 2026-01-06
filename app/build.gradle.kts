@@ -58,4 +58,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Firestore database dependency for Investment module backend
+    implementation("com.google.firebase:firebase-firestore")
+
+
 }

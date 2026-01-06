@@ -53,18 +53,13 @@ public class AuthActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // 🔹 Google Sign-In setup
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
+        GoogleSignInOptions gso =
+                new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                        .requestIdToken(getString(R.string.default_web_client_id))
+                        .requestEmail()
+                        .build();
 
         googleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        // 🔹 Auto-login
-        if (mAuth.getCurrentUser() != null) {
-            openDashboard();
-            return;
-        }
 
         // ===== FIND VIEWS =====
         tabsContainer = findViewById(R.id.tabsContainer);
@@ -110,6 +105,11 @@ public class AuthActivity extends AppCompatActivity {
                 return;
             }
 
+            if (password.length() < 6) {
+                Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnSuccessListener(authResult -> openDashboard())
                     .addOnFailureListener(e ->
@@ -118,10 +118,9 @@ public class AuthActivity extends AppCompatActivity {
 
         // ===== GOOGLE SIGN-IN CLICK =====
         btnGoogleSignIn.setOnClickListener(v -> {
-            googleSignInClient.signOut();   // force account chooser
+            googleSignInClient.signOut(); // force chooser (intentional)
             signInWithGoogle();
         });
-
 
         // ===== TAB LOGIC =====
         tabsContainer.post(() -> {
@@ -142,6 +141,15 @@ public class AuthActivity extends AppCompatActivity {
         tabSignUp.setOnClickListener(v -> moveToSignUp(true));
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            openDashboard();
+        }
+    }
+
     // 🔹 Launch Google chooser
     private void signInWithGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
@@ -153,11 +161,19 @@ public class AuthActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RC_SIGN_IN) {
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
+            Task<GoogleSignInAccount> task =
+                    GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account.getIdToken());
+                GoogleSignInAccount account =
+                        task.getResult(ApiException.class);
+
+                if (account != null && account.getIdToken() != null) {
+                    firebaseAuthWithGoogle(account.getIdToken());
+                } else {
+                    Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show();
+                }
+
             } catch (ApiException e) {
                 Toast.makeText(this, "Google sign-in failed", Toast.LENGTH_SHORT).show();
             }
@@ -165,7 +181,9 @@ public class AuthActivity extends AppCompatActivity {
     }
 
     private void firebaseAuthWithGoogle(String idToken) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+        AuthCredential credential =
+                GoogleAuthProvider.getCredential(idToken, null);
+
         mAuth.signInWithCredential(credential)
                 .addOnSuccessListener(authResult -> openDashboard())
                 .addOnFailureListener(e ->
