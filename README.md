@@ -1,64 +1,63 @@
 # MoneyMitra 💰
 
-MoneyMitra is an AI-powered personal finance management Android application built using **Java**, **XML**, and **Firebase**.  
-The app focuses on clean UI, modular architecture, and practical financial tracking features.
+MoneyMitra is an Android application designed to help users track and manage their personal finances in a simple, visual, and intuitive way.  
+The app focuses on clean UI, meaningful insights, and real-time data handling using Firebase.
 
 ---
 
 ## 🚀 Features
 
-### 🔐 Authentication
-- Firebase Email/Password authentication
-- Google Sign-In integration
-- Custom animated Login / Signup UI
-
-### 📊 Dashboard
-- Dark-themed modern UI
-- Card-based navigation for financial modules
-- Reusable press animations
-
-### 💼 Investment Module
-- Add and view investments
-- RecyclerView-based dynamic list
-- Pie/Donut chart visualization (MPAndroidChart)
-- Empty state handling
-- Long-press bottom sheet actions (delete)
-- Color-coded investment categories
+### 🔹 Investment Module ✅ (Completed)
+- Add, edit, and delete investments
+- Firebase Firestore-backed persistent storage
+- Interactive donut chart (MPAndroidChart)
+- Real-time **chart ↔ card synchronization**
+- Color-coded investments with smooth animations
+- Clickable chart slices with card highlighting
+- Clean empty state handling
+- Polished UI inspired by modern finance apps
 
 ---
 
 ## 🛠 Tech Stack
-
-- **Language:** Java  
-- **UI:** XML (Material Design)  
-- **Authentication:** Firebase Auth  
-- **Database:** Firebase (planned / in progress)  
-- **Charts:** MPAndroidChart  
-- **Architecture:** Activity-based with clean separation of UI, model, and adapter layers  
+- **Language:** Java
+- **UI:** XML (Material Design)
+- **Database:** Firebase Firestore
+- **Authentication:** Firebase Auth (Google Sign-In supported)
+- **Charts:** MPAndroidChart
 
 ---
 
-## 📌 Project Status
-
-✔ Authentication module completed  
-✔ Dashboard UI completed  
-✔ Investment module UI & logic completed  
-
-🚧 Backend refactor and additional modules (Goals, Expenses, Assets, Liabilities) are planned.
+## 📱 Screens Implemented
+- Authentication (Login / Signup)
+- Dashboard
+- Investment Tracker (Complete)
 
 ---
 
-## 📷 Screenshots
-_(To be added)_
+## 📌 Upcoming Modules
+- Goals Tracker
+- Expense Tracker
+- Assets & Liabilities
+- Financial Calculators
+- AI-based insights (planned)
 
 ---
 
-## 👩‍💻 Developer
-
-**Simran Mishra**  
-Android Developer (Java | Firebase | UI-Focused)
+## 🎯 Project Focus
+MoneyMitra is built with an emphasis on:
+- Clean architecture
+- UI-first development
+- Smooth animations and interactions
+- Interview-ready, production-quality Android code
 
 ---
 
-## 📄 License
-This project is for learning and portfolio purposes.
+## 📂 Repository Structure
+```text
+app/
+ ├── activities
+ ├── adapters
+ ├── models
+ ├── repository
+ ├── res/
