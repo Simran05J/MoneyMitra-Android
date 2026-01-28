@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="7dp"
+    app:cardUseCompatPadding="false"
+    app:cardBackgroundColor="#1E1E1E"
+    app:strokeWidth="1dp"
+    app:strokeColor="#2A2A2A">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="14dp">
+
+        <!-- CATEGORY ICON -->
+        <ImageView
+            android:id="@+id/ivCategoryIcon"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:padding="8dp"
+            android:src="@drawable/ic_home"
+            android:background="@drawable/bg_icon_soft"
+            app:tint="@null" />
+
+        <!-- CATEGORY NAME -->
+        <TextView
+            android:id="@+id/tvCategoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/ivCategoryIcon"
+            android:layout_marginStart="14dp"
+            android:text="Home and Utilities"
+            android:textColor="#EDEDED"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- TOTAL AMOUNT -->
+        <TextView
+            android:id="@+id/tvCategoryTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCategoryName"
+            android:layout_toEndOf="@id/ivCategoryIcon"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="6dp"
+            android:text="₹1370"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- NEXT ARROW -->
+        <ImageView
+            android:id="@+id/ivNext"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_next"
+            android:alpha="0.45"
+            app:tint="#FFFFFF" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

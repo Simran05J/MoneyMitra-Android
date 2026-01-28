@@ -92,6 +92,11 @@ public class DashboardActivity extends AppCompatActivity {
         // ===== CLICKS =====
         cardInvestment.setOnClickListener(v ->
                 startActivity(new Intent(this, InvestmentActivity.class)));
+        findViewById(R.id.cardExpense).setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, ExpenseActivity.class);
+            startActivity(intent);
+        });
+
 
         ivProfile.setOnClickListener(v -> showProfileBottomSheet());
     }

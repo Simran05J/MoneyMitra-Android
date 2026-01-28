@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="20dp">
+
+    <!-- HEADER -->
+    <TextView
+        android:id="@+id/txtHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Expense"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- CATEGORY -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMainCategory"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:endIconMode="dropdown_menu"
+        app:layout_constraintTop_toBottomOf="@id/txtHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/etMainCategory"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="Category"
+            android:inputType="none"
+            android:padding="16dp"
+            android:background="@drawable/bg_input_dark"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- TITLE -->
+    <EditText
+        android:id="@+id/etExpenseTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:hint="Expense Title"
+        android:padding="16dp"
+        android:background="@drawable/bg_input_dark"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#80FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tilMainCategory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- AMOUNT -->
+    <EditText
+        android:id="@+id/etExpenseAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:hint="Amount (₹)"
+        android:inputType="numberDecimal"
+        android:padding="16dp"
+        android:background="@drawable/bg_input_dark"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#80FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/etExpenseTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- DATE -->
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:hint="Date"
+        android:focusable="false"
+        android:clickable="true"
+        android:padding="16dp"
+        android:background="@drawable/bg_input_dark"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#80FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/etExpenseAmount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- SAVE BUTTON -->
+    <TextView
+        android:id="@+id/btnSaveExpense"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="32dp"
+        android:text="ADD EXPENSE"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:background="@drawable/bg_add_investment_button"
+        app:layout_constraintTop_toBottomOf="@id/etDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

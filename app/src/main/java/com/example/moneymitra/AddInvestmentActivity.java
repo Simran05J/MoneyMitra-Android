@@ -2,7 +2,6 @@ package com.example.moneymitra;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,20 +11,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.moneymitra.model.InvestmentItem;
 import com.example.moneymitra.repository.InvestmentRepository;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class AddInvestmentActivity extends AppCompatActivity {
 
     // ================= VIEWS =================
-    private EditText etInvestmentLabel;
-    private EditText etAmount;
-    private EditText etGoal; // 🔥 NEW
+    private TextInputEditText etInvestmentLabel;
+    private TextInputEditText etAmount;
+    private TextInputEditText etGoal;
     private MaterialAutoCompleteTextView etCategory;
     private TextView btnSave;
 
     // ================= EDIT MODE =================
     private boolean isEditMode = false;
-    private String editInvestmentId = null;
+    private String editInvestmentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,47 +33,9 @@ public class AddInvestmentActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_investment);
 
-        // ================= CHECK EDIT MODE =================
-        if (getIntent() != null && "EDIT".equals(getIntent().getStringExtra("MODE"))) {
-            isEditMode = true;
-            editInvestmentId = getIntent().getStringExtra("INVESTMENT_ID");
-        }
-
         initViews();
-        setupCategoryDropdown();   // 🔥 adapter FIRST (important)
-
-        // ================= PREFILL FOR EDIT =================
-        if (isEditMode) {
-
-            String name = getIntent().getStringExtra("NAME");
-            long amount = getIntent().getLongExtra("AMOUNT", 0);
-            String goal = getIntent().getStringExtra("GOAL"); // 🔥 NEW
-
-            if (name != null) {
-                // Expected format: "SIP (Mutual Funds)"
-                if (name.contains("(") && name.contains(")")) {
-
-                    String actualName =
-                            name.substring(0, name.indexOf("(")).trim();
-
-                    String category =
-                            name.substring(name.indexOf("(") + 1, name.indexOf(")"));
-
-                    etInvestmentLabel.setText(actualName);
-                    etCategory.setText(category, false);
-
-                } else {
-                    etInvestmentLabel.setText(name);
-                }
-            }
-
-            etAmount.setText(String.valueOf(amount));
-
-            if (goal != null) {          // 🔥 PREFILL GOAL
-                etGoal.setText(goal);
-            }
-        }
-
+        setupCategoryDropdown();
+        detectEditMode();
         setupClickListeners();
     }
 
@@ -81,12 +43,42 @@ public class AddInvestmentActivity extends AppCompatActivity {
     private void initViews() {
         etInvestmentLabel = findViewById(R.id.etName);
         etAmount = findViewById(R.id.etAmount);
+        etGoal = findViewById(R.id.etGoal);
         etCategory = findViewById(R.id.etCategory);
-        etGoal = findViewById(R.id.etGoal);   // 🔥 NEW
         btnSave = findViewById(R.id.btnSave);
     }
 
-    // ================= DROPDOWN =================
+    // ================= EDIT MODE =================
+    private void detectEditMode() {
+        if (getIntent() == null) return;
+
+        if ("EDIT".equals(getIntent().getStringExtra("MODE"))) {
+            isEditMode = true;
+            editInvestmentId = getIntent().getStringExtra("INVESTMENT_ID");
+
+            String fullName = getIntent().getStringExtra("NAME");
+            long amount = getIntent().getLongExtra("AMOUNT", 0);
+            String goal = getIntent().getStringExtra("GOAL");
+
+            if (fullName != null && fullName.contains("(")) {
+                String name = fullName.substring(0, fullName.indexOf("(")).trim();
+                String category =
+                        fullName.substring(fullName.indexOf("(") + 1, fullName.indexOf(")"));
+
+                etInvestmentLabel.setText(name);
+                etCategory.setText(category, false);
+            } else if (fullName != null) {
+                etInvestmentLabel.setText(fullName);
+            }
+
+            etAmount.setText(String.valueOf(amount));
+            if (goal != null) etGoal.setText(goal);
+
+            btnSave.setText("Update Investment");
+        }
+    }
+
+    // ================= CATEGORY DROPDOWN =================
     private void setupCategoryDropdown() {
 
         String[] categories = {
@@ -108,23 +100,23 @@ public class AddInvestmentActivity extends AppCompatActivity {
         etCategory.setInputType(0);
     }
 
-    // ================= CLICK HANDLING =================
+    // ================= SAVE HANDLING =================
     private void setupClickListeners() {
 
         btnSave.setOnClickListener(v -> {
 
             if (FirebaseAuth.getInstance().getCurrentUser() == null) {
-                Toast.makeText(this, "User not logged in", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             String name = etInvestmentLabel.getText().toString().trim();
-            String amountStr = etAmount.getText().toString().trim();
             String category = etCategory.getText().toString().trim();
-            String goal = etGoal.getText().toString().trim(); // 🔥 NEW
+            String goal = etGoal.getText().toString().trim();
+            String amountStr = etAmount.getText().toString().trim();
 
-            if (name.isEmpty() || amountStr.isEmpty() || category.isEmpty()) {
-                Toast.makeText(this, "Fill all fields", Toast.LENGTH_SHORT).show();
+            if (name.isEmpty() || category.isEmpty() || amountStr.isEmpty()) {
+                Toast.makeText(this, "Fill all required fields", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -132,51 +124,45 @@ public class AddInvestmentActivity extends AppCompatActivity {
             try {
                 amount = Long.parseLong(amountStr);
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Enter valid amount", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Invalid amount", Toast.LENGTH_SHORT).show();
                 return;
             }
 
             String finalName = name + " (" + category + ")";
-
             InvestmentRepository repository = new InvestmentRepository();
 
             if (isEditMode) {
-                // ===== UPDATE EXISTING INVESTMENT =====
-                InvestmentItem item = new InvestmentItem(
-                        finalName,
-                        amount,
-                        0,
-                        System.currentTimeMillis()
-                );
+                InvestmentItem item = new InvestmentItem();
                 item.setId(editInvestmentId);
-                item.setGoal(goal); // 🔥 SAVE GOAL
+                item.setName(finalName);
+                item.setAmount(amount);
+                item.setGoal(goal);
 
                 repository.updateInvestment(item)
-                        .addOnSuccessListener(aVoid -> {
+                        .addOnSuccessListener(a -> {
                             setResult(RESULT_OK);
                             finish();
                         })
                         .addOnFailureListener(e ->
-                                Toast.makeText(this, "Failed to update investment", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Update failed", Toast.LENGTH_SHORT).show()
                         );
 
             } else {
-                // ===== ADD NEW INVESTMENT =====
                 InvestmentItem item = new InvestmentItem(
                         finalName,
                         amount,
                         0,
                         System.currentTimeMillis()
                 );
-                item.setGoal(goal); // 🔥 SAVE GOAL
+                item.setGoal(goal);
 
                 repository.addInvestment(item)
-                        .addOnSuccessListener(docRef -> {
+                        .addOnSuccessListener(a -> {
                             setResult(RESULT_OK);
                             finish();
                         })
                         .addOnFailureListener(e ->
-                                Toast.makeText(this, "Failed to add investment", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Add failed", Toast.LENGTH_SHORT).show()
                         );
             }
         });

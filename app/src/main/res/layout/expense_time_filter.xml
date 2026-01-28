@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Filter By"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/tvFilterToday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Today"
+        android:padding="14dp"/>
+
+    <TextView
+        android:id="@+id/tvFilterWeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This Week"
+        android:padding="14dp"/>
+
+    <TextView
+        android:id="@+id/tvFilterMonth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="This Month"
+        android:padding="14dp"/>
+</LinearLayout>

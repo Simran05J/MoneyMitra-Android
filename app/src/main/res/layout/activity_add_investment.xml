@@ -7,7 +7,7 @@
     android:background="#000000"
     android:padding="20dp">
 
-    <!-- Header -->
+    <!-- HEADER -->
     <TextView
         android:id="@+id/txtHeader"
         android:layout_width="wrap_content"
@@ -20,13 +20,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- CATEGORY DROPDOWN (STABLE VERSION) -->
+    <!-- CATEGORY -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:endIconMode="dropdown_menu"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#6FF2E7"
+        app:hintTextColor="#80FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/txtHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -34,74 +37,93 @@
         <com.google.android.material.textfield.MaterialAutoCompleteTextView
             android:id="@+id/etCategory"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="wrap_content"
             android:hint="Category"
-            android:background="@drawable/bg_input_dark"
+            android:inputType="none"
             android:textColor="#FFFFFF"
-            android:textColorHint="#80FFFFFF"
-            android:padding="16dp"
-            android:inputType="none"/>
+            android:textColorHint="#80FFFFFF"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- INVESTMENT NAME -->
-    <EditText
-        android:id="@+id/etName"
+    <!-- NAME -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Investment Name"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
-        android:background="@drawable/bg_input_dark"
-        android:padding="16dp"
         android:layout_marginTop="14dp"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#6FF2E7"
+        app:hintTextColor="#80FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/tilCategory"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Investment Name"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- AMOUNT -->
-    <EditText
-        android:id="@+id/etAmount"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAmount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Amount (₹)"
-        android:inputType="number"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
-        android:background="@drawable/bg_input_dark"
-        android:padding="16dp"
         android:layout_marginTop="14dp"
-        app:layout_constraintTop_toBottomOf="@id/etName"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#6FF2E7"
+        app:hintTextColor="#80FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tilName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount (₹)"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- GOAL -->
-    <EditText
-        android:id="@+id/etGoal"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilGoal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Goal (e.g. Retirement, Travel)"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#80FFFFFF"
-        android:background="@drawable/bg_input_dark"
-        android:padding="16dp"
         android:layout_marginTop="14dp"
-        app:layout_constraintTop_toBottomOf="@id/etAmount"
+        app:boxBackgroundMode="outline"
+        app:boxStrokeColor="#6FF2E7"
+        app:hintTextColor="#80FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/tilAmount"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Goal (optional)"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- SAVE BUTTON -->
     <TextView
         android:id="@+id/btnSave"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:text="ADD INVESTMENT"
+        android:layout_marginTop="32dp"
+        android:text="SAVE INVESTMENT"
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="#000000"
         android:gravity="center"
-        android:layout_marginTop="32dp"
         android:background="@drawable/bg_add_investment_button"
-        app:layout_constraintTop_toBottomOf="@id/etGoal"
+        app:layout_constraintTop_toBottomOf="@id/tilGoal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

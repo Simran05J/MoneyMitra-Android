@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvEditExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Expense"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/tvDeleteExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Expense"
+        android:textSize="18sp"
+        android:padding="12dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="@android:color/holo_red_dark"/>
+
+</LinearLayout>
