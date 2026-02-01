@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:fitsSystemWindows="true">
+
+    <!-- ================= HEADER SECTION ================= -->
+    <!-- Green curved SVG header -->
+    <ImageView
+        android:id="@+id/imgGoalHeader"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:src="@drawable/bg_goal_header"
+        android:scaleType="fitXY"/>
+    <!-- ================= HEADER CONTENT ================= -->
+    <LinearLayout
+        android:id="@+id/layoutGoalHeaderContent"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top row: Back button + Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Back button -->
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_prev"
+                android:contentDescription="Back"/>
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvGoalHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Financial Goal Tracker"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="12dp"/>
+        </LinearLayout>
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvGoalHeaderSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="Track Your Goals"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+
+
+    <!-- ================= GOALS LIST ================= -->
+    <!-- RecyclerView starts BELOW header -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGoals"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/tvEmptyState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No goals yet.\nStart your first plan."
+        android:textColor="#9E9E9E"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginTop="80dp"/>
+
+    <!-- ================= ADD GOAL IMAGE (BOTTOM RIGHT) ================= -->
+    <ImageView
+        android:id="@+id/btnAddGoal"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_add"
+        android:scaleType="centerInside"
+        android:elevation="12dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"/>
+
+
+
+    <!-- ================= CHATBOT IMAGE (BOTTOM LEFT) ================= -->
+    <ImageView
+        android:id="@+id/ivChatBot"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_chatbot"
+        android:scaleType="centerCrop"
+        android:elevation="10dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"/>
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

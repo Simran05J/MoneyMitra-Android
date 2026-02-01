@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.moneymitra">
 
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -15,31 +15,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoneyMitra">
-
-        <activity android:name=".ExpenseCategoryDetailActivity" android:exported="false" />
-        <activity android:name=".AddExpenseActivity" android:exported="false" />
-        <activity android:name=".ExpenseActivity" android:exported="false" />
-        <activity android:name=".AddInvestmentActivity" android:exported="false" />
-        <activity android:name=".InvestmentActivity" android:exported="false" />
-        <activity android:name=".DashboardActivity" android:exported="false" />
-
+        <activity
+            android:name=".AddGoalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GoalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExpenseCategoryDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddInvestmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InvestmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.MoneyMitra.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".AuthActivity" android:exported="true" />
-
-        <!-- DAILY REMINDER RECEIVER -->
+        <activity
+            android:name=".AuthActivity"
+            android:exported="true" /> <!-- DAILY REMINDER RECEIVER -->
         <receiver
             android:name=".DailyReminderReceiver"
             android:exported="false" />
-
     </application>
 
 </manifest>

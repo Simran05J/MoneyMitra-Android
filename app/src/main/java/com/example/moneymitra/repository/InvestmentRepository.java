@@ -33,10 +33,12 @@ public class InvestmentRepository {
 
     // ================= COLLECTION REF =================
     private CollectionReference investmentsRef() {
+        String uid = FirebaseAuth.getInstance().getUid();
         return db.collection("users")
-                .document(userId)
-                .collection("investments");
+                .document(uid)
+                .collection("investments");   // EXACT Firebase name
     }
+
 
     // ================= ADD =================
     public Task<DocumentReference> addInvestment(InvestmentItem item) {

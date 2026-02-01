@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:paddingTop="24dp"
+    android:paddingHorizontal="16dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etGoalTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Goal Title (Buy Car)"
+        android:padding="12dp"/>
+
+    <EditText
+        android:id="@+id/etGoalTarget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Target Amount"
+        app:prefixText="₹"
+        android:inputType="numberDecimal"
+        android:padding="12dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerInvestment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btnSaveGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Goal"
+        android:stateListAnimator="@anim/press_scale"
+        android:background="@drawable/bg_btn_green"
+        android:textColor="#1E1E1E"
+        android:textSize="15sp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="24dp"
+
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="12dp"
+
+        />
+</LinearLayout>
