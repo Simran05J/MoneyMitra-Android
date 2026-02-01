@@ -27,7 +27,7 @@ The app focuses on clean UI, meaningful insights, and real-time data handling us
 - Interactive donut chart (MPAndroidChart)
 - Time filters: Today / Week / Month
 - Firebase Firestore backend integration
-- 
+  ---
 - ### 🎯 Goals Module ✅ (Completed)
 The Goals module allows users to plan, track, and manage their financial goals with real-time progress updates.
 
