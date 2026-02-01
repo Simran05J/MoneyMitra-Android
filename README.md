@@ -18,6 +18,16 @@ The app focuses on clean UI, meaningful insights, and real-time data handling us
 - Polished UI inspired by modern finance apps
 
 ---
+### Expense Module
+- Add, edit, and delete expenses
+- Category-wise expense tracking
+- Monthly budget setting (per category)
+- Real-time budget exceeded notifications
+- Daily expense reminder notifications
+- Interactive donut chart (MPAndroidChart)
+- Time filters: Today / Week / Month
+- Firebase Firestore backend integration
+
 
 ## 🛠 Tech Stack
 - **Language:** Java
