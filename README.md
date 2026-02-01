@@ -27,6 +27,20 @@ The app focuses on clean UI, meaningful insights, and real-time data handling us
 - Interactive donut chart (MPAndroidChart)
 - Time filters: Today / Week / Month
 - Firebase Firestore backend integration
+- 
+- ### 🎯 Goals Module
+The Goals module allows users to plan, track, and manage their financial goals with real-time progress updates.
+
+**Key Features:**
+- Create financial goals with a target amount
+- Edit and delete existing goals
+- Link goals to investments using investment IDs
+- Automatic progress calculation based on linked investment amount
+- Supports decimal progress (e.g. 0.1%, 0.5%) for accurate tracking
+- Smooth animated progress bar with easing
+- Clean empty-state handling with fade-in transitions
+- No UI flicker during loading
+- Polished UX with press animations on buttons, cards, and icons
 
 
 ## 🛠 Tech Stack
