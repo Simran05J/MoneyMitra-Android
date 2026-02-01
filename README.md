@@ -18,7 +18,7 @@ The app focuses on clean UI, meaningful insights, and real-time data handling us
 - Polished UI inspired by modern finance apps
 
 ---
-### Expense Module
+### Expense Module ✅ (Completed)
 - Add, edit, and delete expenses
 - Category-wise expense tracking
 - Monthly budget setting (per category)
@@ -28,7 +28,7 @@ The app focuses on clean UI, meaningful insights, and real-time data handling us
 - Time filters: Today / Week / Month
 - Firebase Firestore backend integration
 - 
-- ### 🎯 Goals Module
+- ### 🎯 Goals Module ✅ (Completed)
 The Goals module allows users to plan, track, and manage their financial goals with real-time progress updates.
 
 **Key Features:**
