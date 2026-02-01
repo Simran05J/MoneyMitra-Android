@@ -56,12 +56,12 @@ The Goals module allows users to plan, track, and manage their financial goals w
 - Authentication (Login / Signup)
 - Dashboard
 - Investment Tracker (Complete)
+- Expense Tracker (Complete)
+- Financial Goals Tracker (Complete)
 
 ---
 
 ## 📌 Upcoming Modules
-- Goals Tracker
-- Expense Tracker
 - Assets & Liabilities
 - Financial Calculators
 - AI-based insights (planned)
@@ -71,7 +71,6 @@ The Goals module allows users to plan, track, and manage their financial goals w
 ## 🎯 Project Focus
 MoneyMitra is built with an emphasis on:
 - Clean architecture
-- UI-first development
 - Smooth animations and interactions
 - Interview-ready, production-quality Android code
 
