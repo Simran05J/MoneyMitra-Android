@@ -42,6 +42,18 @@ The Goals module allows users to plan, track, and manage their financial goals w
 - Clean empty-state handling with fade-in transitions
 - No UI flicker during loading
 - Polished UX with press animations on buttons, cards, and icons
+  
+## Assets Module
+
+Tracks and manages user assets with reliable storage, clean state handling, and category-wise visualization.
+
+### Key Features
+- Add, edit, and delete assets (name, category, value, notes)
+- Persistent storage using **Firebase Firestore**
+- Automatic total asset value calculation
+- Category-wise distribution via **PieChart**
+- Chart shown only when data exists (clean empty state)
+- Smooth pie chart entry animation
 
 
 ## 🛠 Tech Stack
@@ -59,11 +71,12 @@ The Goals module allows users to plan, track, and manage their financial goals w
 - Investment Tracker (Complete)
 - Expense Tracker (Complete)
 - Financial Goals Tracker (Complete)
+- Assets Tracker (Complete)
 
 ---
 
 ## 📌 Upcoming Modules
-- Assets & Liabilities
+- Liabilities
 - Financial Calculators
 - AI-based insights (planned)
 
