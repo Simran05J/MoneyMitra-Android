@@ -13,7 +13,7 @@
         android:id="@+id/imgGoalHeader"
         android:layout_width="match_parent"
         android:layout_height="220dp"
-        android:src="@drawable/bg_goal_header"
+        android:src="@drawable/bg_green_header"
         android:scaleType="fitXY"/>
     <!-- ================= HEADER CONTENT ================= -->
     <LinearLayout

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvEditAsset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Edit Asset"
+        android:textSize="16sp"
+        android:padding="12dp"/>
+
+    <TextView
+        android:id="@+id/tvDeleteAsset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Asset"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:padding="12dp"/>
+
+</LinearLayout>

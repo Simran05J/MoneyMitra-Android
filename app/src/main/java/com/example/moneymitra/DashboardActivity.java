@@ -102,6 +102,9 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(i);
         });
 
+        cardAsset.setOnClickListener(v -> {
+            startActivity(new Intent(DashboardActivity.this, AssetsActivity.class));
+        });
 
         ivProfile.setOnClickListener(v -> showProfileBottomSheet());
     }
