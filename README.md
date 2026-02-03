@@ -55,6 +55,26 @@ Tracks and manages user assets with reliable storage, clean state handling, and 
 - Chart shown only when data exists (clean empty state)
 - Smooth pie chart entry animation
 
+ ### Liabilities Module
+
+Manages user liabilities with real-time synchronization, accurate aggregation, and reliable state handling.
+
+###Key Features
+
+-Add, edit, and delete liabilities (name, category, amount, notes)
+
+-Persistent storage using Firebase Firestore
+
+-Automatic total liability calculation across all entries
+
+-Real-time UI updates after add, edit, or delete actions
+
+-Clean empty state handling when no liabilities exist
+
+-Long-press contextual actions for edit and delete
+
+-Amounts formatted using Indian number system commas
+
 
 ## 🛠 Tech Stack
 - **Language:** Java
@@ -72,11 +92,11 @@ Tracks and manages user assets with reliable storage, clean state handling, and 
 - Expense Tracker (Complete)
 - Financial Goals Tracker (Complete)
 - Assets Tracker (Complete)
+-  Liabilities Tracker (Complete)
 
 ---
 
 ## 📌 Upcoming Modules
-- Liabilities
 - Financial Calculators
 - AI-based insights (planned)
 
