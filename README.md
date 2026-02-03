@@ -59,21 +59,21 @@ Tracks and manages user assets with reliable storage, clean state handling, and 
 
 Manages user liabilities with real-time synchronization, accurate aggregation, and reliable state handling.
 
-###Key Features
+### Key Features
 
--Add, edit, and delete liabilities (name, category, amount, notes)
+- Add, edit, and delete liabilities (name, category, amount, notes)
 
--Persistent storage using Firebase Firestore
+- Persistent storage using Firebase Firestore
 
--Automatic total liability calculation across all entries
+- Automatic total liability calculation across all entries
 
--Real-time UI updates after add, edit, or delete actions
+- Real-time UI updates after add, edit, or delete actions
 
--Clean empty state handling when no liabilities exist
+- Clean empty state handling when no liabilities exist
 
--Long-press contextual actions for edit and delete
+- Long-press contextual actions for edit and delete
 
--Amounts formatted using Indian number system commas
+- Amounts formatted using Indian number system commas
 
 
 ## 🛠 Tech Stack
