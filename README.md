@@ -75,6 +75,21 @@ Manages user liabilities with real-time synchronization, accurate aggregation, a
 
 - Amounts formatted using Indian number system commas
 
+  ### 🧮 Financial Calculator Module ✅ (Completed)
+The Financial Calculator module helps users quickly estimate common financial values directly inside the app without using external tools.
+
+**Key Features:**
+- Includes 5 calculators: SIP, EMI, FD, Loan and PF
+- Reusable base calculator UI used across all calculators
+- Dynamic headers and input hints for each calculator screen
+- Accurate financial formulas implemented for real-world estimation
+- Indian currency formatting with comma separators (₹)
+- Input validation for empty fields and zero values
+- Result card automatically hides when inputs are edited
+- Smooth navigation from dashboard to individual calculators
+- Clean and consistent Material UI design
+
+
 
 ## 🛠 Tech Stack
 - **Language:** Java
@@ -93,11 +108,11 @@ Manages user liabilities with real-time synchronization, accurate aggregation, a
 - Financial Goals Tracker (Complete)
 - Assets Tracker (Complete)
 -  Liabilities Tracker (Complete)
+-  Financial Calculator (Completed)
 
 ---
 
 ## 📌 Upcoming Modules
-- Financial Calculators
 - AI-based insights (planned)
 
 ---
