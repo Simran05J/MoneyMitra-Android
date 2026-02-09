@@ -110,6 +110,9 @@ public class DashboardActivity extends AppCompatActivity {
             startActivity(new Intent(DashboardActivity.this, LiabilitiesActivity.class));
         });
 
+        cardCalculator.setOnClickListener(v -> {
+            startActivity(new Intent(DashboardActivity.this, CalculatorActivity.class));
+        });
 
         ivProfile.setOnClickListener(v -> showProfileBottomSheet());
     }

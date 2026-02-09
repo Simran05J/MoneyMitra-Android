@@ -97,6 +97,7 @@ public class ExpenseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expense);
         expenseRepo = ExpenseRepository.getInstance();
+        findViewById(R.id.ivBack).setOnClickListener(v -> finish());
 
 // 🔥 LOAD EXPENSES FROM FIREBASE
         expenseRepo.loadExpenses(list -> runOnUiThread(this::refreshUI));

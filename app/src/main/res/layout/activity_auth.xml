@@ -281,13 +281,6 @@
                 android:gravity="center_horizontal">
 
                 <ImageView
-                    android:id="@+id/ivFacebook"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_facebook"
-                    android:contentDescription="facebook"/>
-
-                <ImageView
                     android:id="@+id/btnGoogleSignIn"
                     android:layout_width="48dp"
                     android:layout_height="48dp"

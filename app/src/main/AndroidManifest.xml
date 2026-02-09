@@ -15,6 +15,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoneyMitra">
+
+        <activity android:name=".SipCalculatorActivity"/>
+        <activity android:name=".EmiCalculatorActivity"/>
+        <activity android:name=".FdCalculatorActivity"/>
+        <activity android:name=".LoanCalculatorActivity"/>
+        <activity android:name=".PfCalculatorActivity"/>
+        <activity
+            android:name=".CalculatorActivity"
+            android:exported="false" />
         <activity
             android:name=".AddEditLiabilityActivity"
             android:exported="false" />
