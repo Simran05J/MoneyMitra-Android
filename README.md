@@ -90,7 +90,7 @@ The Financial Calculator module helps users quickly estimate common financial va
 - Clean and consistent Material UI design
 
 
-  🤖 AI Chatbot Module ✅ (Completed)
+ ### 🤖 AI Chatbot Module ✅ (Completed)
 
 The AI Chatbot turns MoneyMitra into a smart financial assistant that can answer questions using the user’s real financial data.
 
