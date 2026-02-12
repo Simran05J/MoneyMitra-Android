@@ -90,6 +90,22 @@ The Financial Calculator module helps users quickly estimate common financial va
 - Clean and consistent Material UI design
 
 
+  🤖 AI Chatbot Module ✅ (Completed)
+
+The AI Chatbot turns MoneyMitra into a smart financial assistant that can answer questions using the user’s real financial data.
+
+Key Features:
+
+Real-time chat powered by Gemini AI
+Uses in-app financial data before generating replies
+Understands budget, expenses, goals and investments
+Gives personalized saving and spending suggestions
+Typing indicator and loading bubble for better UX
+Error handling for network/API issues
+Modern chat UI with rounded input and chat bubbles
+Smart prompt design to keep responses finance-focused
+
+
 
 ## 🛠 Tech Stack
 - **Language:** Java
@@ -110,10 +126,6 @@ The Financial Calculator module helps users quickly estimate common financial va
 -  Liabilities Tracker (Complete)
 -  Financial Calculator (Completed)
 
----
-
-## 📌 Upcoming Modules
-- AI-based insights (planned)
 
 ---
 
