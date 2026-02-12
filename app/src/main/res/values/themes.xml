@@ -1,25 +1,34 @@
 <resources>
 
+    <!-- MAIN APP THEME -->
     <style name="Theme.MoneyMitra" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <!-- App accent (cards, highlights etc.) -->
-        <item name="colorPrimary">#7CF7E8</item>
+        <!-- Status bar -->
+        <item name="android:statusBarColor">#000000</item>
+
+        <!-- BRAND COLORS -->
+        <item name="colorPrimary">#6FF2E7</item>
         <item name="colorPrimaryVariant">#6FE6D8</item>
+        <item name="colorSecondary">#6FF2E7</item>
+        <item name="colorAccent">#6FF2E7</item>
 
-        <!-- IMPORTANT: buttons ko force mat karo -->
+        <!-- Keep button behaviour same -->
         <item name="colorOnPrimary">@android:color/white</item>
-
-        <!-- Disable default Material button tint -->
         <item name="materialButtonStyle">@style/NoTintButton</item>
 
-        <item name="android:statusBarColor">#000000</item>
+        <!-- 🔥 REMOVE MATERIAL BLUE FROM TEXT FIELDS -->
+        <item name="colorControlActivated">#FFFFFF</item> <!-- cursor + underline -->
+        <item name="colorControlHighlight">#22FFFFFF</item> <!-- ripple -->
+        <item name="android:textColorHighlight">#30FFFFFF</item> <!-- selection bg -->
+        <item name="android:colorControlHighlight">#22FFFFFF</item>
+
     </style>
 
+    <!-- SPLASH THEME -->
     <style name="Theme.MoneyMitra.Splash"
         parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@drawable/bg_splash</item>
         <item name="android:statusBarColor">#000000</item>
-
     </style>
 
 </resources>

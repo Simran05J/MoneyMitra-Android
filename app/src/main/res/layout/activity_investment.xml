@@ -155,18 +155,6 @@
     <!-- ================= FLOATING ACTION AREA ================= -->
     <!-- ================= FLOATING ACTION AREA ================= -->
     <ImageView
-        android:id="@+id/btnChatbot"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="24dp"
-        android:src="@drawable/ic_chatbot"
-        android:contentDescription="@null"
-        android:elevation="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
         android:id="@+id/btnAddInvestment"
         android:layout_width="56dp"
         android:layout_height="56dp"

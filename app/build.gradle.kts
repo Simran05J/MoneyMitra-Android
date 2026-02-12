@@ -62,5 +62,9 @@ dependencies {
     // Firestore database dependency for Investment module backend
     implementation("com.google.firebase:firebase-firestore")
 
+    //Chatbot
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+
 
 }

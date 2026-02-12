@@ -27,6 +27,27 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        // ===== HEADER USER NAME =====
+        TextView tvName = findViewById(R.id.tvName);
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (currentUser != null) {
+            String name = currentUser.getDisplayName();
+
+            if (name != null && !name.isEmpty()) {
+                tvName.setText(name);
+            } else {
+                // fallback if display name not available (email login users)
+                String email = currentUser.getEmail();
+                if (email != null && email.contains("@")) {
+                    tvName.setText(email.substring(0, email.indexOf("@")));
+                } else {
+                    tvName.setText("User");
+                }
+            }
+        }
+
+
         // ===== PROFILE IMAGE =====
         ImageView imgProfile = findViewById(R.id.imgProfile);
 
@@ -61,6 +82,10 @@ public class DashboardActivity extends AppCompatActivity {
         MaterialCardView cardExpense = findViewById(R.id.cardExpense);
 
         ImageView ivChatbot = findViewById(R.id.ivChatbot);
+        ivChatbot.setOnClickListener(v -> {
+            startActivity(new Intent(DashboardActivity.this, ChatActivity.class));
+        });
+
         ImageView ivProfile = findViewById(R.id.imgProfile);
         TextView tvTagline = findViewById(R.id.tvTagline);
 

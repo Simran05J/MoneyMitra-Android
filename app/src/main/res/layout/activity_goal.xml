@@ -100,20 +100,4 @@
         android:layout_margin="16dp"/>
 
 
-
-    <!-- ================= CHATBOT IMAGE (BOTTOM LEFT) ================= -->
-    <ImageView
-        android:id="@+id/ivChatBot"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:src="@drawable/ic_chatbot"
-        android:scaleType="centerCrop"
-        android:elevation="10dp"
-        android:layout_gravity="bottom|start"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"/>
-
-
-
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

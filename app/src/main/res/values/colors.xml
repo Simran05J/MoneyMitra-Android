@@ -4,6 +4,8 @@
     <color name="mm_purple">#9C27B0</color>
     <color name="mm_light">#F2F2F2</color>
     <color name="mm_bg_black">#000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
     <color name="mm_header_purple">#9C27B0</color>
     <color name="mm_investment_blue">#8CF3FF</color>
     <color name="mm_goal_green">#7ED957</color>

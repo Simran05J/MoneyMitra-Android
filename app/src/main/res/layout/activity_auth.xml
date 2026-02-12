@@ -144,16 +144,6 @@
                         android:textColorHint="#9E9E9E"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/tvForgot"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Forget Password"
-                    android:textSize="12sp"
-                    android:textColor="@color/mm_light"
-                    android:layout_marginTop="6dp"
-                    android:layout_gravity="end"/>
-
                 <Button
                     android:id="@+id/btnLogin"
                     android:layout_width="150dp"
@@ -242,52 +232,45 @@
             </LinearLayout>
 
             <!-- divider + social -->
-            <LinearLayout
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btnGoogleSignIn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="28dp">
+                android:layout_height="56dp"
+                android:layout_marginTop="24dp"
+                app:cardCornerRadius="28dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="#DADCE0"
+                android:backgroundTint="@color/white">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="#6E6E6E"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="or Continue with"
-                    android:textColor="@color/mm_light"
-                    android:textSize="12sp"/>
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_google"
+                        android:layout_marginEnd="12dp"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="#6E6E6E"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"/>
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Continue with Google"
+                        android:textSize="16sp"
+                        android:textColor="#1F1F1F"
+                        android:textStyle="bold"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
 
-                <ImageView
-                    android:id="@+id/btnGoogleSignIn"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_marginStart="28dp"
-                    android:src="@drawable/ic_google"
-                    android:contentDescription="google"/>
-            </LinearLayout>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
 
         </LinearLayout>
     </ScrollView>
