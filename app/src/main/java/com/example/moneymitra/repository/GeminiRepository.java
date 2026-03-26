@@ -12,7 +12,7 @@ public class GeminiRepository {
     private static final String TAG = "GeminiRepo";
 
     // 🔑 PUT YOUR API KEY HERE
-    private static final String API_KEY = "AIzaSyDADc-RZ9lvsRRVgX-QkGkVwHSW89W6-SU";
+    private static final String API_KEY = "";
 
     // 🌐 Gemini endpoint
     private static final String BASE_URL =
