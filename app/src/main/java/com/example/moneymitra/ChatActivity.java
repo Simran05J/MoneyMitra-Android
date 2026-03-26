@@ -24,6 +24,14 @@ import com.example.moneymitra.model.GoalItem;
 import com.example.moneymitra.repository.ExpenseRepository;
 import com.example.moneymitra.model.ExpenseItem;
 
+import com.example.moneymitra.repository.AssetRepository;
+import com.example.moneymitra.repository.FirestoreAssetRepository;
+import com.example.moneymitra.model.AssetItem;
+
+import com.example.moneymitra.repository.FirestoreLiabilityRepository;
+import com.example.moneymitra.repository.LiabilityRepository;
+import com.example.moneymitra.model.LiabilityItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +54,10 @@ public class ChatActivity extends AppCompatActivity {
     private List<InvestmentItem> investmentItems = new ArrayList<>();
     private GoalRepository goalRepository;
     private List<GoalItem> goalItems = new ArrayList<>();
+    private AssetRepository assetRepository;
+    private List<AssetItem> assetItems = new ArrayList<>();
+    private LiabilityRepository liabilityRepository;
+    private List<LiabilityItem> liabilityItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +73,10 @@ public class ChatActivity extends AppCompatActivity {
         investmentRepository = new InvestmentRepository();
 
         goalRepository = new FirestoreGoalRepository();
+
+        assetRepository = new FirestoreAssetRepository();
+
+        liabilityRepository = new FirestoreLiabilityRepository();
 
         expenseRepository.loadExpenses(list -> {
             expenseItems = list;
@@ -90,6 +106,30 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onError(Exception e) {
+                // optional log
+            }
+        });
+        // ================= LOAD ASSETS FROM FIREBASE =================
+        assetRepository.getAssets(new AssetRepository.OnAssetsFetchedListener() {
+            @Override
+            public void onSuccess(List<AssetItem> assets) {
+                assetItems = assets;
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                // optional log
+            }
+        });
+// ================= LOAD LIABILITIES FROM FIREBASE =================
+        liabilityRepository.fetchAllLiabilities(new LiabilityRepository.Callback<List<LiabilityItem>>() {
+            @Override
+            public void onSuccess(List<LiabilityItem> list) {
+                liabilityItems = list;
+            }
+
+            @Override
+            public void onFailure(Exception e) {
                 // optional log
             }
         });
@@ -240,6 +280,32 @@ public class ChatActivity extends AppCompatActivity {
 
         String totalInvestments = "₹" + (int) totalInvestmentValue;
 
+        // ================= CALCULATE TOTAL ASSETS =================
+        double totalAssetsValue = 0;
+
+// Loop through all assets and sum their VALUE (not amount)
+        for (AssetItem asset : assetItems) {
+            totalAssetsValue += asset.getValue(); // ✅ correct getter
+        }
+// Convert to ₹ string
+        String totalAssets = "₹" + (int) totalAssetsValue;
+
+        // ================= CALCULATE TOTAL LIABILITIES =================
+        double totalLiabilityValue = 0;
+
+// Loop through all liabilities
+        for (LiabilityItem liability : liabilityItems) {
+            totalLiabilityValue += liability.getTotalAmount(); // correct field
+        }
+
+// Convert to ₹
+        String totalLiabilities = "₹" + (int) totalLiabilityValue;
+
+        // ================= CALCULATE NET WORTH =================
+        double netWorthValue = totalAssetsValue - totalLiabilityValue;
+
+        String netWorth = "₹" + (int) netWorthValue;
+
 
         return "USER FINANCIAL DATA FROM MONEYMITRA APP:\n\n" +
 
@@ -251,7 +317,10 @@ public class ChatActivity extends AppCompatActivity {
                 "- Food: " + food + "\n" +
                 "- Transport: " + transport + "\n\n" +
 
-                "Investments Total: " + totalInvestments + "\n\n" +
+                "Investments Total: " + totalInvestments + "\n" +
+                "Total Assets: " + totalAssets + "\n" +
+                "Total Liabilities: " + totalLiabilities + "\n" +
+                "Net Worth: " + netWorth + "\n\n" +
 
                 "Savings Goal:\n" +
                 "Goal Name: " + goalName + "\n" +
