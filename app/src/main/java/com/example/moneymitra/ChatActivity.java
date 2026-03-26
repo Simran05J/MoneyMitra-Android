@@ -13,6 +13,17 @@ import com.example.moneymitra.adapter.ChatAdapter;
 import com.example.moneymitra.model.ChatMessage;
 import com.example.moneymitra.repository.GeminiRepository;
 
+import com.example.moneymitra.repository.InvestmentRepository;
+import com.example.moneymitra.model.InvestmentItem;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import com.example.moneymitra.repository.GoalRepository;
+import com.example.moneymitra.repository.FirestoreGoalRepository;
+import com.example.moneymitra.model.GoalItem;
+
+import com.example.moneymitra.repository.ExpenseRepository;
+import com.example.moneymitra.model.ExpenseItem;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +40,12 @@ public class ChatActivity extends AppCompatActivity {
     // Chat data
     ChatAdapter chatAdapter;
     List<ChatMessage> messageList;
+    private ExpenseRepository expenseRepository;
+    private List<ExpenseItem> expenseItems = new ArrayList<>();
+    private InvestmentRepository investmentRepository;
+    private List<InvestmentItem> investmentItems = new ArrayList<>();
+    private GoalRepository goalRepository;
+    private List<GoalItem> goalItems = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +55,44 @@ public class ChatActivity extends AppCompatActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
         // 🔹 Initialize Gemini repository
         geminiRepository = new GeminiRepository();
+
+        expenseRepository = ExpenseRepository.getInstance();
+
+        investmentRepository = new InvestmentRepository();
+
+        goalRepository = new FirestoreGoalRepository();
+
+        expenseRepository.loadExpenses(list -> {
+            expenseItems = list;
+        });
+
+        // ================= LOAD INVESTMENTS FROM FIREBASE =================
+        investmentRepository.fetchInvestments(
+                snapshot -> {
+                    investmentItems.clear();
+
+                    for (QueryDocumentSnapshot doc : snapshot) {
+                        InvestmentItem item = doc.toObject(InvestmentItem.class);
+                        item.setId(doc.getId());
+                        investmentItems.add(item);
+                    }
+                },
+                e -> {
+                    // Optional: log error
+                }
+        );
+        // ================= LOAD GOALS FROM FIREBASE =================
+        goalRepository.getGoals(new GoalRepository.GoalCallback() {
+            @Override
+            public void onSuccess(List<GoalItem> goals) {
+                goalItems = goals;
+            }
+
+            @Override
+            public void onError(Exception e) {
+                // optional log
+            }
+        });
 
         // 🔹 Bind views
         recyclerChat = findViewById(R.id.recyclerChat);
@@ -134,39 +189,76 @@ public class ChatActivity extends AppCompatActivity {
         float monthlyBudgetValue = prefs.getFloat("monthly_budget", 0f);
 
         // 📊 Category spending totals
-        float homeValue = prefs.getFloat("expense_home", 0f);
-        float foodValue = prefs.getFloat("expense_food", 0f);
-        float transportValue = prefs.getFloat("expense_transport", 0f);
+        float totalSpent = 0f;
 
-        // 📊 Calculate total spent
-        float totalSpent = homeValue + foodValue + transportValue;
+        for (ExpenseItem item : expenseItems) {
+            totalSpent += item.getAmount();
+        }
 
         // 💰 Convert numbers → ₹ strings
         String monthlyBudget = "₹" + (int) monthlyBudgetValue;
         String spentThisMonth = "₹" + (int) totalSpent;
-        String home = "₹" + (int) homeValue;
-        String food = "₹" + (int) foodValue;
-        String transport = "₹" + (int) transportValue;
+        String home = "Calculated from expenses";
+        String food = "Calculated from expenses";
+        String transport = "Calculated from expenses";
 
         // 🎯 Goal data from Goal module
-        String goalName = prefs.getString("goal_name", "No active goal");
-        float goalTargetValue = prefs.getFloat("goal_target_amount", 0f);
-        float goalSavedValue = prefs.getFloat("goal_saved_amount", 0f);
+        String goalName = "No active goal";
+        String goalTarget = "₹0";
+        String goalSaved = "₹0";
 
-        String goalTarget = "₹" + (int) goalTargetValue;
-        String goalSaved = "₹" + (int) goalSavedValue;
-        // 💹 TEMP Investment summary (next we connect Investment module)
-        String totalInvestments = "₹50000";
+        if (!goalItems.isEmpty()) {
+
+            // For now we take the first goal (later we can improve)
+            GoalItem goal = goalItems.get(0);
+
+            goalName = goal.getGoalName();
+
+            double target = goal.getTargetAmount();
+
+            double saved = 0;
+
+// Find linked investment amount
+            String linkedId = goal.getLinkedInvestmentId();
+
+            for (InvestmentItem inv : investmentItems) {
+                if (inv.getId().equals(linkedId)) {
+                    saved = inv.getAmount();
+                    break;
+                }
+            }
+
+            goalTarget = "₹" + (int) target;
+            goalSaved = "₹" + (int) saved;
+        }
+        // 💹 Investment summary
+        float totalInvestmentValue = 0f;
+
+        for (InvestmentItem item : investmentItems) {
+            totalInvestmentValue += item.getAmount();
+        }
+
+        String totalInvestments = "₹" + (int) totalInvestmentValue;
 
 
+        return "USER FINANCIAL DATA FROM MONEYMITRA APP:\n\n" +
 
-        return "Monthly budget: " + monthlyBudget + "\n" +
-                "Spent this month: " + spentThisMonth + "\n" +
-                "Home & Utilities: " + home + "\n" +
-                "Food: " + food + "\n" +
-                "Transport: " + transport + "\n" +
-                "Total Investments: " + totalInvestments + "\n" +
-                "Goal: " + goalName + " Target " + goalTarget + ", Saved " + goalSaved;
+                "Monthly Budget: " + monthlyBudget + "\n" +
+                "Total Spent This Month: " + spentThisMonth + "\n\n" +
+
+                "Category Breakdown:\n" +
+                "- Home & Utilities: " + home + "\n" +
+                "- Food: " + food + "\n" +
+                "- Transport: " + transport + "\n\n" +
+
+                "Investments Total: " + totalInvestments + "\n\n" +
+
+                "Savings Goal:\n" +
+                "Goal Name: " + goalName + "\n" +
+                "Target Amount: " + goalTarget + "\n" +
+                "Saved So Far: " + goalSaved + "\n\n" +
+
+                "Use this real financial data to answer the user.";
 
     }
 
